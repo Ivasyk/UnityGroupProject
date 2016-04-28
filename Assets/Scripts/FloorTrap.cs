@@ -23,4 +23,7 @@ public class FloorTrap : MonoBehaviour {
 	void OnTriggerEnter (Collider other){
 		anim.SetBool("TrapActive", true);
 	}
+	void OnTriggerExit (Collider other){
+		anim.SetBool ("TrapActive", false);
+	}
 }
