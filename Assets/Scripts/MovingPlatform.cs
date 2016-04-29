@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SnappingCrane : MonoBehaviour {
-	public bool SnapA;
+public class MovingPlatform : MonoBehaviour {
+	public bool Platform;
 	 // Reference to the animator bool to trigger the state.
 
 	private Animator anim;		// Reference to the animator component.
@@ -22,11 +22,11 @@ public class SnappingCrane : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other){
-		anim.SetBool("SnapA", true);
+		anim.SetBool("Platform", true);
 			}
 
 	void OnTriggerExit (Collider other){
-		anim.SetBool ("SnapA", false);
+		anim.SetBool ("Platform", false);
 			}
 
 
