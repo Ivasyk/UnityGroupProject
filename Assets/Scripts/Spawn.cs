@@ -1,18 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class Spawn : MonoBehaviour {
-	private GameObject player;
+	public bool ded;
+	public GameObject spawnpoint;
 	// Use this for initialization
 	void Start () {
-	
+		spawnpoint = GameObject.Find ("Spawner").GetComponent<GameObject> ();
+
 	}
-	
+	void Awake(){
+		DontDestroyOnLoad (transform.gameObject);
+	}
 	// Update is called once per frame
 	void Update () {
 	
 	}
-	void OnTriggerExit (Collider other){
-		transform.position = new Vector3(-3.16f, 0.54f, 5.15f);
+	void OnTriggerExit (Collider col){
+		switch (col.gameObject.tag) {
+		case "LevelCollider":
+			transform.position = spawnpoint.transform.position;
+			break;
+		}
 	}
 }
