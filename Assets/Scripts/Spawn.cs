@@ -24,4 +24,11 @@ public class Spawn : MonoBehaviour {
 			break;
 		}
 	}
+	void OnTriggerEnter(Collider col){
+		switch (col.gameObject.tag) {
+		case "Portal":
+			Application.LoadLevel("GameHub");
+			break;
+		}
+	}
 }
